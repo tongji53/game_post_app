@@ -1,0 +1,16 @@
+<%= form_with model: @post, local: true do |f| %>
+  <div>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :content, "内容" %>
+    <%= f.text_field :content, required: true %>
+  </div>
+  <div>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.submit "送信" %>
+  </div>
+<% end %>
