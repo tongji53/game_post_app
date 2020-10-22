@@ -1,6 +1,13 @@
 <div>
   <p>タイトル <%= post.title %></p>
   <p>内容 <%= post.content %></p>
+  <p id="post-<%= post.id %>">
+    <% if @liked_post_ids.include?(post.id) %>
+      <%= render "like", post: post %>
+    <% else %>
+      <%= render "dislike", post: post %>
+    <% end %>
+  </p>
   <p>
     <%= link_to "詳細", post %>
     <% if current_user.id == post.user.id %>
